@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Google | Downloads all the way</title><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no"><script src="http://s0.2mdn.net/ads/studio/Enabler.js" type="text/javascript"></script><style type="text/css">html, body { height: 100%; min-height: 100%; margin: 0; padding: 0; }
+            #loading-screen { width: 100%; height: 100%; background-color: white; z-index: 10; }
+                #loading-screen-icon { position: absolute; left: 50%; margin-left: -15px; top: 50%; margin-top: -15px; }
+            #full-screen { display: none; z-index: 20; }</style></head><body><div id="loading-screen"><img src="loading.gif" id="loading-screen-icon"></div><div id="full-screen" class="banner"><div id="banner-splash" class="splash-module banner__splash"><header class="splash-module__header table-module"><div class="splash-module__header__logo table-module__cell"><img src="" data-src="google-logo-large.png"></div></header><div class="splash-module__text table-module"><div class="text-module text--alpha table-module__cell"><h1 class="text-module__title">Going to the rugby?</h1><h2 class="text-module__subtitle">Get all the apps</h2></div></div><div class="splash-module__inactive-icons table-module"></div><div class="splash-module__buttons table-module"><div class="table-module__cell"><div id="splash" class="btn">Download Google apps</div></div></div><div id="splash-active-icons" class="icons-module icons--charlie"><div class="icons-module__slide"><img src="" data-src="Mobile-Search-Icon.png"></div><div class="icons-module__slide"><img src="" data-src="Mobile-YouTube-Icon.png"></div><div class="icons-module__slide"><img src="" data-src="Mobile-Maps-Icon.png"></div><div class="icons-module__slide"><img src="" data-src="Mobile-Gmail-Icon.png"></div></div></div><header class="header-module table-module banner__header"><div class="header-module__logo table-module__cell"><img src="" data-src="google-logo.png"></div></header><div class="flex-module banner__flex"><div class="flex-module__child child--align-center"><div id="banner-text" class="slides-module slides--alpha banner__text"><div class="slides-module__slide text-module"><h1 class="text-module__title">Google Search</h1><h2 class="text-module__subtitle">The right information at the right time.</h2></div><div class="slides-module__slide text-module"><h1 class="text-module__title">Official Rugby World Cup 2015</h1><h2 class="text-module__subtitle">Follow your favourite team's preparations.</h2></div><div class="slides-module__slide text-module"><h1 class="text-module__title">London City Guide</h1><h2 class="text-module__subtitle">The personal advisor in your pocket.</h2></div><div class="slides-module__slide text-module"><h1 class="text-module__title">National Rail Enquiries</h1><h2 class="text-module__subtitle">The must-have app for every train traveller.</h2></div></div></div><div class="flex-module__child"><div id="banner-gallery" class="gallery-module banner__gallery"><div class="gallery-module__wrapper"><div class="gallery-module__slide"><img src="" data-src="Mobile-Search.jpg"></div><div class="gallery-module__slide"><img src="" data-src="Mobile-YouTube.jpg"></div><div class="gallery-module__slide"><img src="" data-src="Mobile-Maps.jpg"></div><div class="gallery-module__slide"><img src="" data-src="Mobile-Gmail.jpg"></div></div></div></div></div><nav class="navigation-module banner__navigation table-module"><ul id="banner-navigation" class="navigation-module__list table-module__cell"></ul></nav><div id="banner-buttons" class="slides-module table-module banner__buttons"><div class="slides-module__slide table-module__cell"><div id="search" class="btn">Download Google apps</div></div><div class="slides-module__slide table-module__cell"><div id="youtube" class="btn">Download Google apps</div></div><div class="slides-module__slide table-module__cell"><div id="maps" class="btn">Download Google apps</div></div><div class="slides-module__slide table-module__cell"><div id="mail" class="btn">Download Google apps</div></div></div><div id="banner-icons" class="icons-module icons--alpha banner__icons"><div class="icons-module__slide"><img src="" data-src="Mobile-Search-Icon.png"></div><div class="icons-module__slide"><img src="" data-src="Mobile-YouTube-Icon.png"></div><div class="icons-module__slide"><img src="" data-src="Mobile-Maps-Icon.png"></div><div class="icons-module__slide"><img src="" data-src="Mobile-Gmail-Icon.png"></div></div></div><script type="text/javascript">// Set up the click tracking functions.
+            function clickTracking() {
+                var splashBtn  = document.getElementById('splash'),
+                    mailBtn    = document.getElementById('mail'),
+                    searchBtn  = document.getElementById('search'),
+                    mapsBtn    = document.getElementById('maps'),    
+                    youtubeBtn = document.getElementById('youtube');
+                
+                splashBtn.addEventListener('click', function callback() {
+                    // Add in the click tracking code here.
+                    Enabler.exit('Splash exit');
+                });
+                mailBtn.addEventListener('click', function callback() {
+                    // Add in the click tracking code here.
+                    Enabler.exit('Google Mail exit');
+                });
+                searchBtn.addEventListener('click', function callback() {
+                    // Add in the click tracking code here.
+                    Enabler.exit('Google Search exit');
+                });
+                mapsBtn.addEventListener('click', function callback() {
+                    // Add in the click tracking code here.
+                    Enabler.exit('Google Maps exit');
+                });
+                youtubeBtn.addEventListener('click', function callback() {
+                    // Add in the click tracking code here.
+                    Enabler.exit('Google YouTube exit');
+                });
+            };
+            // Set up the swipe tracking functions.
+            function swipeTracking(slide) {
+                var i = slide || 0;
+                switch (i) {
+                    case 0:
+                        // Add interaction tracking code in here.
+                        Enabler.counter('Google search swiped');
+                    break;
+                    case 1:
+                        // Add interaction tracking code in here.
+                        Enabler.counter('Google YouTube swiped');
+                    break;
+                    case 2:
+                        // Add interaction tracking code in here.
+                        Enabler.counter('Google Maps swiped');
+                    break;
+                    case 3:
+                        // Add interaction tracking code in here.
+                        Enabler.counter('Google Mail swiped');
+                    break;
+                    default:
+                        // Add interaction tracking code in here.
+                        Enabler.counter('Banner swiped');
+                }
+            };
+            // Set up the App object.
+            var App = window.App = {};
+            // Set the slide count.
+            App.slideCount = 4;
+            // Set up the function to load in the stylesheet and the app functionality.
+            App.LoadFiles = function(opts) {
+                this.opts = opts;
+                this._init();
+            };
+            App.LoadFiles.prototype.loadScripts = function(cb) {
+                var self = this,
+                    body = document.body,
+                    script = document.createElement('script');    
+                script.setAttribute('type', 'text/javascript');
+                script.setAttribute('src', Enabler.getUrl('app.js'));
+                body.appendChild(script);
+                script.onload = function() {
+                    if('function' === typeof cb) {
+                        cb();
+                    }
+                }
+            };
+            App.LoadFiles.prototype.loadStyles = function(cb) {
+                var self  = this,
+                    head  = document.getElementsByTagName('head')[0],
+                    style = document.createElement('link');
+                style.setAttribute('rel', 'stylesheet');
+                style.setAttribute('type', 'text/css');
+                style.setAttribute('href', Enabler.getUrl('screen.css'));
+                head.appendChild(style);
+                style.onload = function() {
+                    if('function' === typeof cb) {
+                        cb();
+                    }
+                }
+            };
+            App.LoadFiles.prototype.loadImages = function(cb) {
+                var images = document.querySelectorAll('img'),
+                    max    = images.length;
+                while(max--) {
+                    var img = images[max],
+                        dataSrc = img.getAttribute('data-src');
+                    if(dataSrc) {
+                        img.setAttribute('src', dataSrc);
+                    }
+                }
+                if('function' === typeof cb) {
+                    cb();
+                }
+            };
+            App.LoadFiles.prototype._init = function() {
+                var self = this;
+                return this;
+            };
+
+            (function() {
+                var loader = document.getElementById('loading-screen'),
+                    fullScreen = document.getElementById('full-screen'),
+                    counter = 0;
+                // Set up the toggle listeners.
+                function toggleCreative() {
+                    if(counter > 0) {
+                        loader.style.display     = 'none';
+                        fullScreen.style.display = 'block';
+                    }
+                    else {
+                        loader.style.display = 'block';
+                        // Load in the files.
+                        // Make sure this only happens once.
+                        var files = new App.LoadFiles(),
+                            scriptsCb = function() {
+                                loader.style.display     = 'none';
+                                fullScreen.style.display = 'block';
+                            },
+                            stylesCb = function() {
+                                files.loadScripts(scriptsCb);
+                            },
+                            imageCb = function() {
+                                files.loadStyles(stylesCb);
+                            };
+                        files.loadImages(imageCb);
+                        counter += 1;
+                    }
+                    // Track the interactions.
+                    Enabler.startTimer('Banner visible');
+                };
+                // Set up the init listeners.
+                function init() {
+                    if(Enabler.isPageLoaded()) {
+                        toggleCreative();
+                    }
+                    else {
+                        Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, toggleCreative);
+                    }
+                }
+                if(Enabler.isInitialized) {
+                    init();
+                }
+                else {
+                    Enabler.addEventListener(studio.events.StudioEvent.INIT, init);
+                }
+            })();</script></body></html>
